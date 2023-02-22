@@ -66,6 +66,7 @@ public class BoardController {
 
         boardTmp.setTitle(board.getTitle());
         boardTmp.setContent(board.getContent());
+        boardTmp.setAuthor(board.getAuthor());
 
         boardService.write(boardTmp);
 

@@ -44,6 +44,7 @@ public class BoardRepositoryTest {
         boardRepository.save(Board.builder()
                 .title("title")
                 .content("content")
+                .author("author")
                 .build());
 
         //when

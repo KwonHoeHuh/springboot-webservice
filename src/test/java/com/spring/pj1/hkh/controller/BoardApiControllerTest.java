@@ -38,6 +38,7 @@ public class BoardApiControllerTest {
         Board savedBoard = boardRepository.save(Board.builder()
                 .title("title")
                 .content("content")
+                .author("author")
                 .build());
 
         Long updateId = savedBoard.getId();
