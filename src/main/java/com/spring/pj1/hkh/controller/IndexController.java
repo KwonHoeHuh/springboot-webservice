@@ -30,7 +30,14 @@ public class IndexController {
     }
 
     @GetMapping("/board/save")
-    public String boardSave() {
+    public String boardSave(Model model, @LoginUser SessionUser user)
+    {
+        model.addAttribute("board", boardService.findAllDesc());
+
+        if(user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+
         return "board-save";
     }
 
