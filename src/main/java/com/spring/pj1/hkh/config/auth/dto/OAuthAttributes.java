@@ -28,15 +28,15 @@ public class OAuthAttributes {
 
     public static OAuthAttributes of(String registrationId, String userNameAttributeName,
                                      Map<String, Object> attributes) {
-        if("naver".equals(registrationId))
-            return ofNaver("id", attributes);
-        if("kakao".equals(registrationId))
+//        if("naver".equals(registrationId))
+//            return ofNaver("id", attributes);
+//        if("kakao".equals(registrationId))
             return ofKakao("id", attributes);
 
-        return ofGoogle(userNameAttributeName, attributes);
+//        return ofGoogle(userNameAttributeName, attributes);
     }
 
-    private static OAuthAttributes ofGoogle(String userNameAttributeName, Map<String, Object> attributes) {
+/*    private static OAuthAttributes ofGoogle(String userNameAttributeName, Map<String, Object> attributes) {
         return OAuthAttributes.builder()
                 .name((String) attributes.get("name"))
                 .email((String) attributes.get("email"))
@@ -57,7 +57,7 @@ public class OAuthAttributes {
                 .nameAttributeKey(userNameAttributeName)
                 .build();
     }
-
+*/
     private static OAuthAttributes ofKakao(String userNameAttributeName, Map<String, Object> attributes) {
         // kakao는 kakao_account에 유저정보가 있다. (email)
         Map<String, Object> kakaoAccount = (Map<String, Object>)attributes.get("kakao_account");
@@ -74,6 +74,6 @@ public class OAuthAttributes {
     }
 
     public User toEntity() {
-        return User.builder().name(name).email(email).picture(picture).role(Role.GUEST).build();
+        return User.builder().name(name).email(email).picture(picture).role(Role.USER).build();
     }
 }

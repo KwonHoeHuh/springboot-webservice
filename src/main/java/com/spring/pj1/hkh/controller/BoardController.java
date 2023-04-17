@@ -1,6 +1,6 @@
 package com.spring.pj1.hkh.controller;
 
-import com.spring.pj1.hkh.domain.Board;
+import com.spring.pj1.hkh.domain.Marathon;
 import com.spring.pj1.hkh.dto.BoardResponseDto;
 import com.spring.pj1.hkh.dto.BoardSaveRequestDto;
 import com.spring.pj1.hkh.dto.BoardUpdateDto;
@@ -38,7 +38,7 @@ public class BoardController {
     }
 
     @PostMapping("/create")
-    public String create(Board board, Model model) {
+    public String create(Marathon board, Model model) {
         boardService.write(board);
 
         return "boardwrite";
@@ -61,8 +61,8 @@ public class BoardController {
     }
 
     @PostMapping("/update/{id}")
-    public String update(@PathVariable("id") Long id, Board board) {
-        Board boardTmp = boardService.read(id);
+    public String update(@PathVariable("id") Long id, Marathon board) {
+        Marathon boardTmp = boardService.read(id);
 
         boardTmp.setTitle(board.getTitle());
         boardTmp.setContent(board.getContent());

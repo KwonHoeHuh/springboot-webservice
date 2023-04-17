@@ -35,7 +35,7 @@ public class BoardApiControllerTest {
     @Test
     public void Board_수정하기() throws Exception {
         // given
-        Board savedBoard = boardRepository.save(Board.builder()
+        Marathon savedBoard = boardRepository.save(Marathon.builder()
                 .title("title")
                 .content("content")
                 .author("author")
@@ -61,7 +61,7 @@ public class BoardApiControllerTest {
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         //assertThat(responseEntity.getBody()).isGreaterThan(0L);
 
-        List<Board> boardList = boardRepository.findAll();
+        List<Marathon> boardList = boardRepository.findAll();
         assertThat(boardList.get(boardList.size()-1).getTitle()).isEqualTo(expectedTitle);
         assertThat(boardList.get(boardList.size()-1).getContent()).isEqualTo(expectedContent);
     }

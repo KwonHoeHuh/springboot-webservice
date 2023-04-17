@@ -17,8 +17,18 @@ var main = {
         var data = {
             title: $('#title').val(),
             author: $('#author').val(),
+            name: $('#name').val(),
             content: $('#content').val()
         };
+
+        if(data.title == "") {
+            alert("도전목표를 입력하세요!")
+            return;
+        }
+        else if(data.name == "") {
+            alert("성명을 입력하세요!")
+            return;
+        }
 
         $.ajax({
             type: 'POST',
@@ -36,8 +46,18 @@ var main = {
     update : function () {
         var data = {
             title: $('#title').val(),
+            name: $('#name').val(),
             content: $('#content').val()
         };
+
+        if(data.title == "") {
+            alert("도전목표를 입력하세요!")
+            return;
+        }
+        else if(data.name == "") {
+            alert("성명을 입력하세요!")
+            return;
+        }
 
         var id = $('#id').val();
 

@@ -29,10 +29,10 @@ public class BoardRepositoryTest {
                 .content(content)
                 .build());
 */
-        List<Board> boardList = boardRepository.findAll();
+        List<Marathon> boardList = boardRepository.findAll();
 
         System.out.println("size = " + Integer.toString(boardList.size()));
-        Board board = boardList.get(boardList.size()-1);
+        Marathon board = boardList.get(boardList.size()-1);
         assertThat(board.getTitle()).isEqualTo(title);
         assertThat(board.getContent()).isEqualTo(content);
     }
@@ -41,17 +41,17 @@ public class BoardRepositoryTest {
     public void BaseTimeEntity_등록() {
         //given
         LocalDateTime now = LocalDateTime.of(2022,6,4,0,0,0);
-        boardRepository.save(Board.builder()
+        boardRepository.save(Marathon.builder()
                 .title("title")
                 .content("content")
                 .author("author")
                 .build());
 
         //when
-        List<Board> boardList = boardRepository.findAll();
+        List<Marathon> boardList = boardRepository.findAll();
 
         //then
-        Board board = boardList.get(boardList.size()-1);
+        Marathon board = boardList.get(boardList.size()-1);
 
         System.out.println(">>>>>>> createDate="+board.getCreatedDate()+", modifiedDate="+board.getModifiedDate());
 

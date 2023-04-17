@@ -1,29 +1,41 @@
 {{>layout/header}}
 
-<h1>스프링부트로 시작하는 웹 서비스 Ver.2</h1>
+<h3>&nbsp&nbsp&nbsp쥐마클 서경 도전 서약서</h3>
+<br>
+<h6>&nbsp하기 서명한 친구들은 자신의 신체 단련 및 완주기록 달성을 위한 동기부여가 필요하기에 도전 목표를 사전 설정하고, 미달성시는 벌금을 내기로 서약한다.</h6>
+<h6>&nbsp&nbsp- 참가대회 : 2023年 下半期 풀코스대회 (비공식대회 제외)</h6>
+<h6>&nbsp&nbsp- 도전코스 : FULL (42.195 KM), 공식기록증限</h6>
+<h6>&nbsp&nbsp- 목표미달시 벌금 : 100,000 원 (금 일십만원정)</h6>
+<br>
+<a></a>
+<a></a>
 <div class="col-md-12">
     <div class="row">
         <div class="col-md-6">
+            {{^Exist}}
             <a href="/board/save" role="button" class="btn btn-primary">글 등록</a>
+            {{/Exist}}
             {{#userName}}
                 Logged in as: <span id="user">{{userName}}</span>
-                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+                    <!--<a href="/logout" class="btn btn-info active" role="button">Logout</a>-->
             {{/userName}}
             {{^userName}}
-                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
-                <a href="/oauth2/authorization/kakao" class="btn btn-tertiary active" role="button">Kakao Login</a>
+                <!--<a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>-->
+                <!--<a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>-->
+                <a href="/oauth2/authorization/kakao" class="btn btn-third active" role="button">Kakao Login</a>
             {{/userName}}
         </div>
     </div>
     <br>
+    <h6> ■ 도전목표</h6>
     <!-- 목록 출력 영역 -->
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
         <tr>
-            <th>게시글번호</th>
-            <th>제목</th>
-            <th>작성자</th>
+            <th>번호</th>
+            <th>닉네임</th>
+            <th>성명</th>
+            <th>도전목표</th>
             <th>최종수정일</th>
         </tr>
         </thead>
@@ -31,8 +43,14 @@
         {{#board}}
             <tr>
                 <td>{{id}}</td>
-                <td><a href="/board/update/{{id}}">{{title}}</a></td>
                 <td>{{author}}</td>
+                <td>{{name}}</td>
+                {{#youyou}}
+                    <td><a href="/board/update/{{id}}">{{title}}</a></td>
+                {{/youyou}}
+                {{^youyou}}
+                    <td>{{title}}</td>
+                {{/youyou}}
                 <td>{{modifiedDate}}</td>
             </tr>
         {{/board}}
