@@ -1,6 +1,9 @@
 {{>layout/header}}
 
 <h3>&nbsp&nbsp&nbsp쥐마클 서경 도전 서약서</h3>
+<div class = "row" style="display: flex; justify-content: left">
+    <img src = "img/72.jpg">
+</div>
 <br>
 <h6>&nbsp하기 서명한 친구들은 자신의 신체 단련 및 완주기록 달성을 위한 동기부여가 필요하기에 도전 목표를 사전 설정하고, 미달성시는 벌금을 내기로 서약한다.</h6>
 <h6>&nbsp&nbsp- 참가대회 : 2023年 下半期 풀코스대회 (비공식대회 제외)</h6>
@@ -36,7 +39,7 @@
             <th>닉네임</th>
             <th>성명</th>
             <th>도전목표</th>
-            <th>최종수정일</th>
+            <th>남긴말씀</th>
         </tr>
         </thead>
         <tbody id="tbody">
@@ -51,7 +54,7 @@
                 {{^youyou}}
                     <td>{{title}}</td>
                 {{/youyou}}
-                <td>{{modifiedDate}}</td>
+                <td>{{content}}</td>
             </tr>
         {{/board}}
         </tbody>

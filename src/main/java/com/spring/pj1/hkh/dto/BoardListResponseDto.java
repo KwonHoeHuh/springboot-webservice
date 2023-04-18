@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class BoardListResponseDto {
     private Long id;
     private String title;
+    private String content;
     private String author;
     private String name;
     private LocalDateTime modifiedDate;
@@ -17,6 +18,7 @@ public class BoardListResponseDto {
     public BoardListResponseDto(Marathon entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
+        this.content = entity.getContent();
         this.author = entity.getAuthor();
         this.modifiedDate = entity.getModifiedDate();
         this.name = entity.getName();
